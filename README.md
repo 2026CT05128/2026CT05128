@@ -69,11 +69,13 @@ The positive class is `>50K`.
 ### Graph representation
 
 The program generates:
-- `outputs/all_metrics_comparison.png` – grouped bar chart for all six metrics and five models.
-- `outputs/metrics_heatmap.png` – heatmap of metric scores.
-- One confusion-matrix image per model in `outputs/`.
+– grouped bar chart for all six metrics and five models.
 
-Include these generated images in the PDF report.
+<img width="1597" height="739" alt="image" src="https://github.com/user-attachments/assets/0ae6ea08-2df3-4706-ac06-4299b2246846" />
+
+- `outputs/metrics_heatmap.png` – heatmap of metric scores.
+
+  <img width="1332" height="739" alt="image" src="https://github.com/user-attachments/assets/d2598186-bbc6-4f6a-81fb-901248c28aed" />
 
 ### Observations on model performance
 
@@ -87,36 +89,20 @@ Random Forest provides a better balance between precision and recall and demonst
 
 ## Execution instructions
 
-### 1. Create and activate an environment
-
-Windows:
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-```
-
-Linux / BITS Virtual Lab:
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-### 2. Install dependencies
+### 1. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Run the experiment
+### 2. Run the experiment
 
 From the project root:
 ```bash
 python model/train_models.py
 ```
 
-The script retrieves the dataset from UCI. An internet connection is required for the first download.
-
-### 4. Generated files
+### 3. Generated files
 
 - `test_data.csv` – held-out 20% test partition, including the target for evaluation.
 - `saved_models/` – five fitted preprocessing-and-classification pipelines saved as Joblib files.
@@ -125,14 +111,6 @@ The script retrieves the dataset from UCI. An internet connection is required fo
 - `outputs/metrics_heatmap.png` – metric heatmap.
 - `outputs/*_confusion_matrix.png` – confusion matrices.
 - `outputs/*_classification_report.txt` – per-model classification reports.
-
-## Reproducibility and data leakage prevention
-
-The split uses `random_state=42` and stratification. Each model is trained through a pipeline. Therefore, imputation, one-hot encoding and scaling are learned from training data only; the test set is used only for final evaluation. The same held-out test partition is used for all five models.
-
-## Limitations and ethical considerations
-
-The Adult dataset reflects historical US census data. Its demographic attributes and income labels may encode social and historical biases. Predictions should not be used to make consequential decisions about individuals. The model is an educational experiment, not a fair or validated income-assessment tool.
 
 ## Repository structure
 
