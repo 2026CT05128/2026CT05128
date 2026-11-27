@@ -63,15 +63,8 @@ The positive class is `>50K`.
 
 ### Comparison table
 
-Run `python model/train_models.py`. Then copy the exact values from `outputs/evaluation_metrics.csv` into this table.
+<img width="757" height="175" alt="image" src="https://github.com/user-attachments/assets/b80e7d0d-d61a-4262-9d5a-39fb16b01270" />
 
-| ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
-|---|---:|---:|---:|---:|---:|---:|
-| Logistic Regression | Run experiment | Run experiment | Run experiment | Run experiment | Run experiment | Run experiment |
-| Decision Tree | Run experiment | Run experiment | Run experiment | Run experiment | Run experiment | Run experiment |
-| kNN | Run experiment | Run experiment | Run experiment | Run experiment | Run experiment | Run experiment |
-| Naive Bayes | Run experiment | Run experiment | Run experiment | Run experiment | Run experiment | Run experiment |
-| Random Forest (Ensemble) | Run experiment | Run experiment | Run experiment | Run experiment | Run experiment | Run experiment |
 
 ### Graph representation
 
@@ -84,18 +77,13 @@ Include these generated images in the PDF report.
 
 ### Observations on model performance
 
-Complete this section after running the experiment. Use the measured results rather than assuming a winner.
+<img width="1158" height="320" alt="image" src="https://github.com/user-attachments/assets/ece3dc30-c9d0-4d98-92c7-3a581ee20aa7" />
 
-| ML Model Name | Observation about model performance |
-|---|---|
-| Logistic Regression | Discuss its accuracy, AUC, precision-recall balance and MCC from the generated table. Note that it provides a useful linear baseline. |
-| Decision Tree | Discuss whether its non-linear splits improve minority-class detection and whether its performance suggests overfitting. |
-| kNN | Discuss the effect of distance-based classification and feature scaling on its results. |
-| Naive Bayes | Discuss its speed and the impact of the conditional-independence/Gaussian assumptions. |
-| Random Forest (Ensemble) | Discuss whether combining trees improves AUC, F1 and MCC compared with a single tree. |
-| Overall Winner | Identify the model with the strongest result for your chosen priority metric. Explain the choice using the actual metrics. |
+**Winner selection:** Based on the experimental evaluation of all five classification algorithms, Random Forest emerged as the best-performing model for the Adult Census Income dataset. It achieved the highest accuracy of 85.69%, AUC of 91.25%, F1 score of 0.7032, and MCC score of 0.6090.
 
-**Winner selection:** For this imbalanced dataset, do not choose the winner from accuracy alone. Consider AUC, F1 and MCC together. If the assignment expects one winner, state which metric you prioritize and justify the decision.
+The model also achieved the highest precision of 69.85%, demonstrating better reliability in predicting individuals earning above $50,000. Although Gaussian Naive Bayes achieved the highest recall of 93.36%, its lower precision and accuracy indicate a larger number of false-positive predictions.
+
+Random Forest provides a better balance between precision and recall and demonstrates stronger overall classification performance. Therefore, it is selected as the overall winner for this dataset.
 
 ## Execution instructions
 
